@@ -1,0 +1,4 @@
+sample-cli.txt
+
+
+powershell.exe -executionpolicy bypass -file {YourPathToScriptFile}\capture-mp3.ps1 -sourcedir {PathToSourceDirectory} -destdir {PathToDestDirectory} -s3bucket {S3bucket} -retainlocaldays 1 -retrywaitseconds 3 -maxretries 15
