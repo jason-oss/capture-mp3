@@ -1,14 +1,14 @@
-﻿#Prerequisites
-# continous recording to an .mp3 file to a path in the form of [parentpath]/[date]/[mp3file]
-
-# Create AWS account
-# Create AWS S3 bucket
-# Create AWS IAM identity / group / policy to allow write access to target s3 bucket
-# install AWS tools for powershell (S3) on recording machine
-    # Install-Module -name AWSPowerShell.NetCore
-    # Import-Module AWSPowerShell.NetCore
-    # configure AWS key/secret in to be used by aws tools for PS:  https://aws.amazon.com/blogs/developer/handling-credentials-with-aws-tools-for-windows-powershell/
+﻿
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# vars
+#sourcedir=                     #directory containing source recordings.  Ideally this is a continuous recording.
+#$destdir=                      #local directory to hold recording snapshots each time script is executed
+#$s3bucket=                        #target AWS S3 bucket, leave as '' if copy to s3 bucket is not desired
+#$retainlocaldays=1                              #number of days data to retain the the destdir structure
+#$retrywaitseconds=3                             #number of seconds to wait between retries if file is in use
+#$maxretries=15                                  #number of times to attempt retry if file if is in use
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 param (
     [Parameter(Mandatory=$true)][string]$sourcedir,
@@ -20,15 +20,7 @@ param (
 )
 
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# vars
-#sourcedir=                     #directory containing source recordings.  Ideally this is a continuous recording.
-#$destdir=                      #local directory to hold recording snapshots each time script is executed
-#$s3bucket=                        #target AWS S3 bucket, leave as '' if copy to s3 bucket is not desired
-#$retainlocaldays=1                              #number of days data to retain the the destdir structure
-#$retrywaitseconds=3                             #number of seconds to wait between retries if file is in use
-#$maxretries=15                                  #number of times to attempt retry if file if is in use
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
